@@ -49,9 +49,12 @@ if __name__ == "__main__":
 
         if ref_data["game_on"]:
             objectives = Strategy(teamsParameters, "default").main_strategy()
-            actions = teamsParameters.controller(teamsParameters.yellowRobotValues if teamsParameters.isYellowTeam else teamsParameters.blueRobotValues, objectives)
+            actions = teamsParameters.controller(teamsParameters.yellowRobotValues
+                                                         if teamsParameters.isYellowTeam
+                                                         else teamsParameters.blueRobotValues,
+                                                         objectives)
             
-            actuator.send(actions)
+            actuator.send_all(actions)
 
             writer.writerow([teamsParameters.yellowRobotValues[0][0], teamsParameters.yellowRobotValues[0][1],
                              teamsParameters.yellowRobotValues[1][0], teamsParameters.yellowRobotValues[1][1],

@@ -59,7 +59,7 @@ if __name__ == "__main__":
             writer.writerow([teamsParameters.yellowRobotValues[0][0], teamsParameters.yellowRobotValues[0][1],
                              teamsParameters.yellowRobotValues[1][0], teamsParameters.yellowRobotValues[1][1],
                              teamsParameters.yellowRobotValues[2][0], teamsParameters.yellowRobotValues[2][1],
-                             actions[0][0], actions[1][0], actions[2][0]])
+                             actions[0][0], actions[0][1], actions[0][2]])
 
         elif ref_data["foul"] != 7:
             # foul behaviour

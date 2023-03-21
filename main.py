@@ -51,8 +51,6 @@ if __name__ == "__main__":
                 yellow_score += 1
             elif goal_data == "blue":
                 blue_score += 1
-                
-            
 
             teamsParameters = MatchParameters(vision.get_field_data())
 

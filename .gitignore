@@ -60,3 +60,5 @@ build/
 bin/
 __pycache__
 /.idea/*
+data.csv
+dataYellowTeam.csv

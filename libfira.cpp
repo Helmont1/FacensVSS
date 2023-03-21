@@ -10,6 +10,11 @@
 #define NUM_BOTS 3
 #define CONECTION_TRIES 100
 
+typedef struct { 
+    int blue_score;
+    int yellow_score;
+    int time;
+} game_t;
 typedef struct {
     double x, y, angle, vx, vy, vangle;
 } object_t;
@@ -258,6 +263,17 @@ extern "C"
     int referee_get_interrupt_quadrant()
     {
         return referee->getLastFoulQuadrant();
+    }
+
+    // return referee goal info color from:
+    // enum Color : int {
+    //     BLUE = 0,
+    //     YELLOW = 1,
+    //     NONE = 2,
+    // };
+    int referee_goal_color()
+    {
+        return referee->getLastGoalColor();
     }
 
     // descontructor cuts network conection

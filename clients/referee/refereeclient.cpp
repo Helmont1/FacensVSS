@@ -50,6 +50,10 @@ void RefereeClient::runClient() {
         _foulMutex.lockForWrite();
         _lastFoulData = std::make_tuple<VSSRef::Foul, VSSRef::Color, VSSRef::Quadrant>(command.foul(), command.teamcolor(), command.foulquadrant());
         _foulMutex.unlock();
+
+        _goalMutex.lockForWrite();
+        _lastGoalData = std::make_tuple<VSSRef::Color>(command.teamcolor());
+        _goalMutex.unlock();
     }
 }
 
@@ -75,4 +79,12 @@ VSSRef::Quadrant RefereeClient::getLastFoulQuadrant() {
     _foulMutex.unlock();
 
     return lastFoulQuadrant;
+}
+
+VSSRef::Color RefereeClient::getLastGoalColor() {
+    _goalMutex.lockForRead();
+    VSSRef::Color lastGoalColor = std::get<0>(_lastGoalData);
+    _goalMutex.unlock();
+
+    return lastGoalColor;
 }

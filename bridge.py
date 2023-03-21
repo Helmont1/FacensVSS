@@ -320,6 +320,15 @@ class Referee():
             NONE = 2,
         """
         return lib.referee_interrupt_color()
+    
+    def goalColor(self):
+        """ 
+        Returns goal color data from libira:
+            BLUE = 0,
+            YELLOW = 1,
+            NONE = 2,
+        """
+        return lib.referee_goal_color()
 
     def get_quadrant(self):
         """

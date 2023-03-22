@@ -241,6 +241,20 @@ extern "C"
         return referee->getLastFoul();
     }
 
+    // return referee half info from:
+    //  enum Half{
+        // 	NO_HALF = 0;
+        // 	FIRST_HALF = 1;
+        // 	SECOND_HALF = 2;
+        // 	OVERTIME_FIRST_HALF = 3;
+        // 	OVERTIME_SECOND_HALF = 4;
+        // 	PENALTY_SHOOTOUTS = 5;
+    // }
+    int referee_get_half()
+    {
+        return referee->getHalf();
+    }
+
     // return referee interupt info color from:
     // enum Color : int {
     //     BLUE = 0,
@@ -274,6 +288,11 @@ extern "C"
     int referee_goal_color()
     {
         return referee->getLastGoalColor();
+    }
+
+    int referee_half()
+    {
+        return referee->getHalf();
     }
 
     // descontructor cuts network conection

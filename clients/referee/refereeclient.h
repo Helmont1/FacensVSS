@@ -14,11 +14,13 @@ public:
     VSSRef::Color getLastFoulColor();
     VSSRef::Quadrant getLastFoulQuadrant();
     VSSRef::Color getLastGoalColor();
+    VSSRef::Half getHalf();
 
 private:
     // Environment management
     std::tuple<VSSRef::Foul, VSSRef::Color, VSSRef::Quadrant> _lastFoulData;
     std::tuple<VSSRef::Color> _lastGoalData;
+    VSSRef::Half _lastHalf;
     QReadWriteLock _foulMutex;
     QReadWriteLock _goalMutex;
 

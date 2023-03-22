@@ -54,6 +54,8 @@ void RefereeClient::runClient() {
         _goalMutex.lockForWrite();
         _lastGoalData = std::make_tuple<VSSRef::Color>(command.teamcolor());
         _goalMutex.unlock();
+
+        _lastHalf = command.gamehalf();
     }
 }
 
@@ -87,4 +89,8 @@ VSSRef::Color RefereeClient::getLastGoalColor() {
     _goalMutex.unlock();
 
     return lastGoalColor;
+}
+
+VSSRef::Half RefereeClient::getHalf() {
+    return _lastHalf;
 }

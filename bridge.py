@@ -285,11 +285,11 @@ class Referee():
         
         try:
             data["foul"] = self.interrupt_type()
-            data["yellow"] = self.color() == 1
+            data["color"] = self.color()
             data["quad"] = self.get_quadrant()
             
             data["game_on"] = data["foul"] == 6
-            data["our"] = data["yellow"] == self.mray
+            data["our"] = data["color"] == self.mray
             data["is_game_halt"] = data["foul"] == 7
         except TypeError:
             return None
@@ -321,14 +321,18 @@ class Referee():
         """
         return lib.referee_interrupt_color()
     
-    def goalColor(self):
-        """ 
-        Returns goal color data from libira:
-            BLUE = 0,
-            YELLOW = 1,
-            NONE = 2,
+    def get_half(self):
         """
-        return lib.referee_goal_color()
+        Returns the half of the game:
+        NO_HALF = 0;
+        FIRST_HALF = 1;
+        SECOND_HALF = 2;
+        OVERTIME_FIRST_HALF = 3;
+        OVERTIME_SECOND_HALF = 4;
+        PENALTY_SHOOTOUTS = 5;
+        """
+        return lib.referee_get_half()
+        
 
     def get_quadrant(self):
         """

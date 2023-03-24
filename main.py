@@ -51,11 +51,12 @@ if __name__ == "__main__":
             if ref_data["foul"] == 4 and last_foul != 4:
                 if ref_data["color"] == 0:
                     yellow_score += 1
+                    print("Yellow Scored!")
                 elif ref_data["color"] == 1:
                     blue_score += 1
+                    print("Blue Scored!")
                 last_foul = ref_data["foul"]
-            elif ref_data["foul"] != 4:
-                last_foul = ref_data["foul"]
+            last_foul = ref_data["foul"]
 
             teamsParameters = MatchParameters(vision.get_field_data())
 
